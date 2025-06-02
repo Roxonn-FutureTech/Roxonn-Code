@@ -24,7 +24,7 @@ export interface OpenAiHandlerOptions extends ApiHandlerOptions {}
 
 export class OpenAiHandler extends BaseProvider implements SingleCompletionHandler {
 	protected options: OpenAiHandlerOptions
-	private client: OpenAI
+	protected client: OpenAI
 
 	constructor(options: OpenAiHandlerOptions) {
 		super()
@@ -153,6 +153,11 @@ export class OpenAiHandler extends BaseProvider implements SingleCompletionHandl
 				requestOptions.max_tokens = modelInfo.maxTokens
 			}
 
+			console.log(
+				"[OpenAiHandler DEBUG] createMessage - requestOptions (streaming):",
+				JSON.stringify(requestOptions, null, 2),
+			)
+
 			const stream = await this.client.chat.completions.create(
 				requestOptions,
 				isAzureAiInference ? { path: AZURE_AI_INFERENCE_PATH } : {},
@@ -211,6 +216,11 @@ export class OpenAiHandler extends BaseProvider implements SingleCompletionHandl
 						? [systemMessage, ...convertToSimpleMessages(messages)]
 						: [systemMessage, ...convertToOpenAiMessages(messages)],
 			}
+
+			console.log(
+				"[OpenAiHandler DEBUG] createMessage - requestOptions (non-streaming):",
+				JSON.stringify(requestOptions, null, 2),
+			)
 
 			const response = await this.client.chat.completions.create(
 				requestOptions,

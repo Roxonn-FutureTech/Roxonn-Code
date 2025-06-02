@@ -13,8 +13,8 @@ import { VSCodeButton, VSCodeDivider, VSCodeLink } from "@vscode/webview-ui-tool
 import CountUp from "react-countup"
 import { useExtensionState } from "@/context/ExtensionStateContext"
 import { useAppTranslation } from "@/i18n/TranslationContext"
-import { getKiloCodeBackendAuthUrl } from "../helpers"
-import Logo from "../common/Logo"
+import { getRoxonnBackendAuthUrl } from "../helpers"
+// import Logo from "../common/Logo"
 
 interface ProfileViewProps {
 	onDone: () => void
@@ -118,7 +118,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ onDone: _onDone }) => {
 					<div className="w-full flex gap-2 flex-col min-[225px]:flex-row">
 						<div className="w-full min-[225px]:w-1/2">
 							<VSCodeButtonLink
-								href="https://kilocode.ai/profile"
+								href="https://app.roxonn.com/vscode/wallet"
 								appearance="primary"
 								className="w-full">
 								{t("kilocode:profile.dashboard")}
@@ -167,11 +167,11 @@ const ProfileView: React.FC<ProfileViewProps> = ({ onDone: _onDone }) => {
 				</div>
 			) : (
 				<div className="flex flex-col items-center pr-3">
-					<Logo />
+					{/* <Logo /> */}
 
 					<p className="text-center">{t("kilocode:profile.signUp.description")}</p>
 
-					<VSCodeButtonLink href={getKiloCodeBackendAuthUrl(uriScheme)} className="w-full mb-4">
+					<VSCodeButtonLink href={getRoxonnBackendAuthUrl(uriScheme)} className="w-full mb-4">
 						{t("kilocode:profile.signUp.title")}
 					</VSCodeButtonLink>
 
@@ -179,8 +179,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ onDone: _onDone }) => {
 						<Trans
 							i18nKey="kilocode:profile.signUp.termsAndPrivacy"
 							components={{
-								termsLink: <VSCodeLink href="https://kilocode.ai/terms" />,
-								privacyLink: <VSCodeLink href="https://kilocode.ai/privacy" />,
+								termsLink: <VSCodeLink href="https://roxonn.com/terms" />,
+								privacyLink: <VSCodeLink href="https://roxonn.com/privacy" />,
 							}}
 						/>
 					</p>

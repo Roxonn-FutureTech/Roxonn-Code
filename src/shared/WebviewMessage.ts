@@ -149,6 +149,7 @@ export interface WebviewMessage {
 		| "profileDataResponse" // kilocode_change
 		| "fetchBalanceDataRequest" // kilocode_change
 		| "balanceDataResponse" // kilocode_change
+		| "requestRoxonnModels" // Added for Roxonn provider model fetching
 		| "condense" // kilocode_change
 		| "toggleWorkflow" // kilocode_change
 		| "condenseTaskContextRequest"

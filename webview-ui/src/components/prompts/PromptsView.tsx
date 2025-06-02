@@ -504,7 +504,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 												e.preventDefault() // Prevent blur
 												vscode.postMessage({
 													type: "openFile",
-													text: "./.kilocodemodes",
+													text: "./.roxonnmodes",
 													values: {
 														create: true,
 														content: JSON.stringify({ customModes: [] }, null, 2),
@@ -980,7 +980,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 												// Open or create an empty file
 												vscode.postMessage({
 													type: "openFile",
-													text: `./.kilocode/rules-${currentMode.slug}/rules.md`,
+													text: `./.roxonn/rules-${currentMode.slug}/rules.md`,
 													values: {
 														create: true,
 														content: "",
@@ -1058,7 +1058,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 													vscode.postMessage({
 														type: "openFile",
 														// kilocode_change
-														text: `./.kilocode/system-prompt-${currentMode.slug}`,
+														text: `./.roxonn/system-prompt-${currentMode.slug}`,
 														values: {
 															create: true,
 															content: "",
@@ -1123,7 +1123,7 @@ const PromptsView = ({ onDone }: PromptsViewProps) => {
 										onClick={() =>
 											vscode.postMessage({
 												type: "openFile",
-												text: "./.kilocode/rules/rules.md",
+												text: "./.roxonn/rules/rules.md",
 												values: {
 													create: true,
 													content: "",

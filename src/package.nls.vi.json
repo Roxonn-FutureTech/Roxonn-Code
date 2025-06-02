@@ -1,5 +1,5 @@
 {
-	"extension.displayName": "Kilo Code AI Agent (Cline / Roo features combined)",
+	"extension.displayName": "Roxonn Code AI Agent (Cline / Roo features combined)",
 	"extension.description": "Trợ lý mã hóa AI nguồn mở để lập kế hoạch, xây dựng và sửa mã.",
 	"command.newTask.title": "Tác Vụ Mới",
 	"command.explainCode.title": "Giải Thích Mã",
@@ -13,10 +13,10 @@
 	"command.terminal.fixCommand.title": "Sửa Lệnh Này",
 	"command.terminal.explainCommand.title": "Giải Thích Lệnh Này",
 	"command.acceptInput.title": "Chấp Nhận Đầu Vào/Gợi Ý",
-	"views.activitybar.title": "Kilo Code",
-	"views.contextMenu.label": "Kilo Code",
-	"views.terminalMenu.label": "Kilo Code",
-	"views.sidebar.name": "Kilo Code",
+	"views.activitybar.title": "Roxonn Code",
+	"views.contextMenu.label": "Roxonn Code",
+	"views.terminalMenu.label": "Roxonn Code",
+	"views.sidebar.name": "Roxonn Code",
 	"command.mcpServers.title": "Máy Chủ MCP",
 	"command.prompts.title": "Lời Nhắc",
 	"command.history.title": "Lịch Sử",
@@ -24,10 +24,10 @@
 	"command.settings.title": "Cài Đặt",
 	"command.documentation.title": "Tài Liệu",
 	"command.profile.title": "Hồ sơ",
-	"configuration.title": "Kilo Code",
+	"configuration.title": "Roxonn Code",
 	"commands.allowedCommands.description": "Các lệnh có thể được thực thi tự động khi 'Luôn phê duyệt các thao tác thực thi' được bật",
 	"settings.vsCodeLmModelSelector.description": "Cài đặt cho API mô hình ngôn ngữ VSCode",
 	"settings.vsCodeLmModelSelector.vendor.description": "Nhà cung cấp mô hình ngôn ngữ (ví dụ: copilot)",
 	"settings.vsCodeLmModelSelector.family.description": "Họ mô hình ngôn ngữ (ví dụ: gpt-4)",
-	"settings.customStoragePath.description": "Đường dẫn lưu trữ tùy chỉnh. Để trống để sử dụng vị trí mặc định. Hỗ trợ đường dẫn tuyệt đối (ví dụ: 'D:\\KiloCodeStorage')"
+	"settings.customStoragePath.description": "Đường dẫn lưu trữ tùy chỉnh. Để trống để sử dụng vị trí mặc định. Hỗ trợ đường dẫn tuyệt đối (ví dụ: 'D:\\RoxonnCodeStorage')"
 }

@@ -26,6 +26,7 @@ import { GroqHandler } from "./providers/groq"
 import { ChutesHandler } from "./providers/chutes"
 import { LiteLLMHandler } from "./providers/litellm"
 import { KilocodeOpenrouterHandler } from "./providers/kilocode-openrouter"
+import { RoxonnAzureHandler } from "./providers/roxonn-azure" // Added import for RoxonnAzureHandler
 
 export interface SingleCompletionHandler {
 	completePrompt(prompt: string): Promise<string>
@@ -45,6 +46,12 @@ export interface ApiHandler {
 	 * @returns A promise resolving to the token count
 	 */
 	countTokens(content: Array<Anthropic.Messages.ContentBlockParam>): Promise<number>
+
+	/**
+	 * Fetches a list of available models for the provider.
+	 * Optional, as not all providers may support or need this.
+	 */
+	getModels?: () => Promise<Record<string, ModelInfo>>
 }
 
 export function buildApiHandler(configuration: ProviderSettings): ApiHandler {
@@ -53,6 +60,8 @@ export function buildApiHandler(configuration: ProviderSettings): ApiHandler {
 	switch (apiProvider) {
 		case "kilocode":
 			return new KilocodeOpenrouterHandler(options)
+		case "roxonn": // Added case for Roxonn provider
+			return new RoxonnAzureHandler(options)
 		case "anthropic":
 			return new AnthropicHandler(options)
 		case "glama":

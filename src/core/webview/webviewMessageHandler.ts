@@ -1324,7 +1324,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 				}
 
 				// Changed to /api/profile
-				const response = await axios.get("https://kilocode.ai/api/profile", {
+				const response = await axios.get("https://app.roxonn.com/api/vscode/profile", {
 					headers: {
 						Authorization: `Bearer ${kilocodeToken}`,
 						"Content-Type": "application/json",
@@ -1361,7 +1361,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 					break
 				}
 
-				const response = await axios.get("https://kilocode.ai/api/profile/balance", {
+				const response = await axios.get("https://app.roxonn.com/api/vscode/profile/balance", {
 					// Original path for balance
 					headers: {
 						Authorization: `Bearer ${kilocodeToken}`,
@@ -1399,6 +1399,32 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 			await provider.silentlyRefreshMcpMarketplace()
 			break
 		}
+		case "requestRoxonnModels": // Added handler for Roxonn models
+			try {
+				const { apiConfiguration } = await provider.getState()
+				if (apiConfiguration.apiProvider === "roxonn" && apiConfiguration.kilocodeToken) {
+					const { buildApiHandler } = await import("../../api") // Ensure buildApiHandler is imported
+					const apiHandler = buildApiHandler(apiConfiguration)
+					if (apiHandler && typeof apiHandler.getModels === "function") {
+						const models = await apiHandler.getModels()
+						await provider.postMessageToWebview({
+							type: "roxonnModelsResponse",
+							payload: { models },
+						})
+					} else {
+						throw new Error("Roxonn API handler or getModels function not available.")
+					}
+				} else {
+					throw new Error("Roxonn provider not active or token missing.")
+				}
+			} catch (error: any) {
+				provider.log(`Error fetching Roxonn models: ${error.message}`)
+				await provider.postMessageToWebview({
+					type: "roxonnModelsResponse",
+					payload: { error: error.message },
+				})
+			}
+			break
 
 		case "toggleWorkflow": {
 			const { workflowPath, enabled } = message

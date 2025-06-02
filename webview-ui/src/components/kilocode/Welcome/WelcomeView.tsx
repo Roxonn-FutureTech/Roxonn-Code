@@ -8,7 +8,7 @@ import { ButtonPrimary } from "../common/ButtonPrimary"
 import { ButtonSecondary } from "../common/ButtonSecondary"
 import { ButtonLink } from "../common/ButtonLink"
 import ApiOptions from "../../settings/ApiOptions"
-import { getKiloCodeBackendAuthUrl } from "../helpers"
+import { getRoxonnBackendAuthUrl } from "../helpers" // Changed import
 
 const WelcomeView = () => {
 	const { apiConfiguration, currentApiConfigName, setApiConfiguration, uriScheme, uiKind } = useExtensionState()
@@ -50,7 +50,7 @@ const WelcomeView = () => {
 							hideKiloCodeButton
 						/>
 						{isSettingUpKiloCode ? (
-							<ButtonLink href={getKiloCodeBackendAuthUrl(uriScheme, uiKind)}>
+							<ButtonLink href={getRoxonnBackendAuthUrl(uriScheme, uiKind)}>
 								{t("kilocode:welcome.ctaButton")}
 							</ButtonLink>
 						) : (
@@ -61,7 +61,7 @@ const WelcomeView = () => {
 					<div className="bg-vscode-sideBar-background">
 						<div className="flex flex-col gap-5">
 							<ButtonLink
-								href={getKiloCodeBackendAuthUrl(uriScheme, uiKind)}
+								href={getRoxonnBackendAuthUrl(uriScheme, uiKind)}
 								onClick={() => {
 									if (uiKind === "Web") {
 										setManualConfig(true)

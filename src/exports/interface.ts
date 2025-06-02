@@ -16,7 +16,7 @@ import type {
 	IpcMessage,
 	TaskCommand,
 	TaskEvent,
-} from "./types"
+} from "../schemas" // Changed to import directly from schemas
 
 export type {
 	GlobalSettings,

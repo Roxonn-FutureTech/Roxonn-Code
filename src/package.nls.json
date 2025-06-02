@@ -1,10 +1,10 @@
 {
-	"extension.displayName": "Kilo Code AI Agent (Cline / Roo features combined)",
+	"extension.displayName": "Roxonn Code AI Agent (Cline / Roo features combined)",
 	"extension.description": "Open Source AI coding assistant for planning, building, and fixing code.",
-	"views.contextMenu.label": "Kilo Code",
-	"views.terminalMenu.label": "Kilo Code",
-	"views.activitybar.title": "Kilo Code (⇧⌘A)",
-	"views.sidebar.name": "Kilo Code",
+	"views.contextMenu.label": "Roxonn Code",
+	"views.terminalMenu.label": "Roxonn Code",
+	"views.activitybar.title": "Roxonn Code (⇧⌘A)",
+	"views.sidebar.name": "Roxonn Code",
 	"command.newTask.title": "New Task",
 	"command.mcpServers.title": "MCP Servers",
 	"command.prompts.title": "Prompts",
@@ -24,10 +24,10 @@
 	"command.terminal.explainCommand.title": "Explain This Command",
 	"command.acceptInput.title": "Accept Input/Suggestion",
 	"command.profile.title": "Profile",
-	"configuration.title": "Kilo Code",
+	"configuration.title": "Roxonn Code",
 	"commands.allowedCommands.description": "Commands that can be auto-executed when 'Always approve execute operations' is enabled",
 	"settings.vsCodeLmModelSelector.description": "Settings for VSCode Language Model API",
 	"settings.vsCodeLmModelSelector.vendor.description": "The vendor of the language model (e.g. copilot)",
 	"settings.vsCodeLmModelSelector.family.description": "The family of the language model (e.g. gpt-4)",
-	"settings.customStoragePath.description": "Custom storage path. Leave empty to use the default location. Supports absolute paths (e.g. 'D:\\KiloCodeStorage')"
+	"settings.customStoragePath.description": "Custom storage path. Leave empty to use the default location. Supports absolute paths (e.g. 'D:\\RoxonnCodeStorage')"
 }

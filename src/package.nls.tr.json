@@ -1,5 +1,5 @@
 {
-	"extension.displayName": "Kilo Code AI Agent (Cline / Roo features combined)",
+	"extension.displayName": "Roxonn Code AI Agent (Cline / Roo features combined)",
 	"extension.description": "Kod planlama, oluşturma ve düzeltme için açık kaynaklı yapay zeka kodlama asistanı.",
 	"command.newTask.title": "Yeni Görev",
 	"command.explainCode.title": "Kodu Açıkla",
@@ -13,10 +13,10 @@
 	"command.terminal.fixCommand.title": "Bu Komutu Düzelt",
 	"command.terminal.explainCommand.title": "Bu Komutu Açıkla",
 	"command.acceptInput.title": "Girişi/Öneriyi Kabul Et",
-	"views.activitybar.title": "Kilo Code",
-	"views.contextMenu.label": "Kilo Code",
-	"views.terminalMenu.label": "Kilo Code",
-	"views.sidebar.name": "Kilo Code",
+	"views.activitybar.title": "Roxonn Code",
+	"views.contextMenu.label": "Roxonn Code",
+	"views.terminalMenu.label": "Roxonn Code",
+	"views.sidebar.name": "Roxonn Code",
 	"command.mcpServers.title": "MCP Sunucuları",
 	"command.prompts.title": "Komut İstemleri",
 	"command.history.title": "Geçmiş",
@@ -24,10 +24,10 @@
 	"command.settings.title": "Ayarlar",
 	"command.documentation.title": "Dokümantasyon",
 	"command.profile.title": "Profil",
-	"configuration.title": "Kilo Code",
+	"configuration.title": "Roxonn Code",
 	"commands.allowedCommands.description": "'Her zaman yürütme işlemlerini onayla' etkinleştirildiğinde otomatik olarak yürütülebilen komutlar",
 	"settings.vsCodeLmModelSelector.description": "VSCode dil modeli API'si için ayarlar",
 	"settings.vsCodeLmModelSelector.vendor.description": "Dil modelinin sağlayıcısı (örn: copilot)",
 	"settings.vsCodeLmModelSelector.family.description": "Dil modelinin ailesi (örn: gpt-4)",
-	"settings.customStoragePath.description": "Özel depolama yolu. Varsayılan konumu kullanmak için boş bırakın. Mutlak yolları destekler (örn: 'D:\\KiloCodeStorage')"
+	"settings.customStoragePath.description": "Özel depolama yolu. Varsayılan konumu kullanmak için boş bırakın. Mutlak yolları destekler (örn: 'D:\\RoxonnCodeStorage')"
 }

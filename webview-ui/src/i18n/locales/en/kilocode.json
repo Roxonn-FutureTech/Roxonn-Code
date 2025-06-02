@@ -1,13 +1,13 @@
 {
 	"welcome": {
-		"greeting": "What can Kilo Code do for you?",
-		"introText": "I've been trained on the fastest AI models available and I am ready to generate code for you at warp speed!",
-		"ctaButton": "Try Kilo Code for free",
-		"manualModeButton": "Use your own API key"
+		"greeting": "Welcome to Roxonn Code",
+		"introText": "Get started with AI-powered coding assistance using your Roxonn account.",
+		"ctaButton": "Try Roxonn Code for free",
+		"manualModeButton": "Configure manually"
 	},
 	"lowCreditWarning": {
 		"addCredit": "Add Credit",
-		"lowBalance": "Your Kilo Code balance is low"
+		"lowBalance": "Your Roxonn Code balance is low"
 	},
 	"notifications": {
 		"toolRequest": "Tool request waiting for approval",
@@ -19,14 +19,15 @@
 			"mcp": "MCP Servers"
 		},
 		"provider": {
-			"apiKey": "Kilo Code API Key",
-			"login": "Log in at Kilo Code",
-			"logout": "Log out from Kilo Code"
+			"apiKey": "Roxonn Code API Key",
+			"login": "Log in at Roxonn Code",
+			"logout": "Log out from Roxonn Code",
+			"freeCreditsMessageRoxonn": "You get $20 for free!"
 		}
 	},
 	"chat": {
 		"condense": {
-			"wantsToCondense": "Kilo Code wants to condense your conversation",
+			"wantsToCondense": "Roxonn Code wants to condense your conversation",
 			"condenseConversation": "Condense Conversation"
 		}
 	},
@@ -39,8 +40,8 @@
 		"currentBalance": "CURRENT BALANCE",
 		"loading": "Loading...",
 		"signUp": {
-			"title": "Sign up with Kilo Code",
-			"description": "Signing up with Kilo Code gives you free credits to get started. Use your credits to explore our features, try out the latest and greatest models, and experience the benefits of Kilo Code without any commitment.",
+			"title": "Sign up with Roxonn Code",
+			"description": "Signing up with Roxonn Code gives you free credits to get started. Use your credits to explore our features, try out the latest and greatest models, and experience the benefits of Roxonn Code without any commitment.",
 			"termsAndPrivacy": "By continuing, you agree to the <termsLink>Terms of Service</termsLink> and <privacyLink>Privacy Policy.</privacyLink>"
 		}
 	}

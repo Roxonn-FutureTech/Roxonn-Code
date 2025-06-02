@@ -91,6 +91,7 @@ export type CommandId = (typeof commandIds)[number]
 
 export const providerNames = [
 	"kilocode", // kilocode_change
+	"roxonn", // Added for Roxonn Code
 	"fireworks",
 	"anthropic",
 	"glama",
@@ -617,6 +618,7 @@ export const providerSettingsSchemaDiscriminated = z.discriminatedUnion("apiProv
 	chutesSchema.merge(z.object({ apiProvider: z.literal("chutes") })),
 	litellmSchema.merge(z.object({ apiProvider: z.literal("litellm") })),
 	kilocodeSchema.merge(z.object({ apiProvider: z.literal("kilocode") })), // kilocode_change
+	kilocodeSchema.merge(z.object({ apiProvider: z.literal("roxonn") })), // Added for Roxonn provider
 	defaultSchema,
 ])
 

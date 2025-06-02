@@ -19,6 +19,7 @@ import { ContextProxy } from "./core/config/ContextProxy"
 import { ClineProvider } from "./core/webview/ClineProvider"
 import { DIFF_VIEW_URI_SCHEME } from "./integrations/editor/DiffViewProvider"
 import { TerminalRegistry } from "./integrations/terminal/TerminalRegistry"
+import { loadRoxonnAuthToken } from "./utils/roxonnAuth"
 import { McpServerManager } from "./services/mcp/McpServerManager"
 import { API } from "./exports/api"
 import { migrateSettings } from "./utils/migrateSettings"
@@ -69,6 +70,10 @@ export async function activate(context: vscode.ExtensionContext) {
 	}
 
 	const contextProxy = await ContextProxy.getInstance(context)
+
+	// Load Roxonn auth token from SecretStorage if it exists
+	await loadRoxonnAuthToken(context, contextProxy)
+
 	const provider = new ClineProvider(context, outputChannel, "sidebar", contextProxy)
 
 	context.subscriptions.push(
@@ -82,10 +87,10 @@ export async function activate(context: vscode.ExtensionContext) {
 		try {
 			await vscode.commands.executeCommand("kilo-code.SidebarProvider.focus")
 
-			outputChannel.appendLine("Opening Kilo Code walkthrough")
+			outputChannel.appendLine("Opening Roxonn Code walkthrough")
 			await vscode.commands.executeCommand(
 				"workbench.action.openWalkthrough",
-				"kilocode.kilo-code#kiloCodeWalkthrough",
+				"roxonn.Roxonn-code#roxonnCodeWalkthrough",
 				false,
 			)
 
@@ -123,7 +128,14 @@ export async function activate(context: vscode.ExtensionContext) {
 		vscode.workspace.registerTextDocumentContentProvider(DIFF_VIEW_URI_SCHEME, diffContentProvider),
 	)
 
-	context.subscriptions.push(vscode.window.registerUriHandler({ handleUri }))
+	// Register URI Handler and pass context to it
+	const uriHandlerInstance = {
+		handleUri: (uri: vscode.Uri) => {
+			// Call the imported handleUri function, passing the extension context
+			handleUri(uri, context)
+		},
+	}
+	context.subscriptions.push(vscode.window.registerUriHandler(uriHandlerInstance))
 
 	// Register code actions provider.
 	context.subscriptions.push(

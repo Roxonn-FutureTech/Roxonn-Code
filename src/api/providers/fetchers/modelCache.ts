@@ -55,7 +55,14 @@ export const getModels = async (
 
 	switch (router) {
 		case "openrouter":
-			models = await getOpenRouterModels()
+			// Include authentication token for OpenRouter API requests
+			const kilocodeToken = ContextProxy.instance.getProviderSettings().kilocodeToken
+			const openRouterOptions: any = {
+				headers: {
+					Authorization: `Bearer ${kilocodeToken}`,
+				},
+			}
+			models = await getOpenRouterModels(openRouterOptions)
 			break
 		case "requesty":
 			// Requesty models endpoint requires an API key for per-user custom policies

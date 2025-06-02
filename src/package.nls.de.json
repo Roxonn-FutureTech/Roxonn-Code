@@ -1,5 +1,5 @@
 {
-	"extension.displayName": "Kilo Code AI Agent (Cline / Roo features combined)",
+	"extension.displayName": "Roxonn Code AI Agent (Cline / Roo features combined)",
 	"extension.description": "Open-Source-KI-Codierungsassistent zum Planen, Erstellen und Korrigieren von Code.",
 	"command.newTask.title": "Neue Aufgabe",
 	"command.explainCode.title": "Code Erklären",
@@ -13,10 +13,10 @@
 	"command.terminal.fixCommand.title": "Diesen Befehl Reparieren",
 	"command.terminal.explainCommand.title": "Diesen Befehl Erklären",
 	"command.acceptInput.title": "Eingabe/Vorschlag Akzeptieren",
-	"views.activitybar.title": "Kilo Code",
-	"views.contextMenu.label": "Kilo Code",
-	"views.terminalMenu.label": "Kilo Code",
-	"views.sidebar.name": "Kilo Code",
+	"views.activitybar.title": "Roxonn Code",
+	"views.contextMenu.label": "Roxonn Code",
+	"views.terminalMenu.label": "Roxonn Code",
+	"views.sidebar.name": "Roxonn Code",
 	"command.mcpServers.title": "MCP Server",
 	"command.prompts.title": "Prompts",
 	"command.history.title": "Verlauf",
@@ -24,10 +24,10 @@
 	"command.settings.title": "Einstellungen",
 	"command.documentation.title": "Dokumentation",
 	"command.profile.title": "Profil",
-	"configuration.title": "Kilo Code",
+	"configuration.title": "Roxonn Code",
 	"commands.allowedCommands.description": "Befehle, die automatisch ausgeführt werden können, wenn 'Ausführungsoperationen immer genehmigen' aktiviert ist",
 	"settings.vsCodeLmModelSelector.description": "Einstellungen für die VSCode-Sprachmodell-API",
 	"settings.vsCodeLmModelSelector.vendor.description": "Der Anbieter des Sprachmodells (z.B. copilot)",
 	"settings.vsCodeLmModelSelector.family.description": "Die Familie des Sprachmodells (z.B. gpt-4)",
-	"settings.customStoragePath.description": "Benutzerdefinierter Speicherpfad. Leer lassen, um den Standardspeicherort zu verwenden. Unterstützt absolute Pfade (z.B. 'D:\\KiloCodeStorage')"
+	"settings.customStoragePath.description": "Benutzerdefinierter Speicherpfad. Leer lassen, um den Standardspeicherort zu verwenden. Unterstützt absolute Pfade (z.B. 'D:\\RoxonnCodeStorage')"
 }

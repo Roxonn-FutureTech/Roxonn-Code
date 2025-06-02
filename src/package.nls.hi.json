@@ -1,5 +1,5 @@
 {
-	"extension.displayName": "Kilo Code AI Agent (Cline / Roo features combined)",
+	"extension.displayName": "Roxonn Code AI Agent (Cline / Roo features combined)",
 	"extension.description": "कोड की योजना बनाने, निर्माण करने और उसे ठीक करने के लिए ओपन सोर्स एआई कोडिंग सहायक।",
 	"command.newTask.title": "नया कार्य",
 	"command.explainCode.title": "कोड समझाएं",
@@ -13,10 +13,10 @@
 	"command.terminal.fixCommand.title": "यह कमांड ठीक करें",
 	"command.terminal.explainCommand.title": "यह कमांड समझाएं",
 	"command.acceptInput.title": "इनपुट/सुझाव स्वीकारें",
-	"views.activitybar.title": "Kilo Code",
-	"views.contextMenu.label": "Kilo Code",
-	"views.terminalMenu.label": "Kilo Code",
-	"views.sidebar.name": "Kilo Code",
+	"views.activitybar.title": "Roxonn Code",
+	"views.contextMenu.label": "Roxonn Code",
+	"views.terminalMenu.label": "Roxonn Code",
+	"views.sidebar.name": "Roxonn Code",
 	"command.mcpServers.title": "एमसीपी सर्वर",
 	"command.prompts.title": "प्रॉम्प्ट्स",
 	"command.history.title": "इतिहास",
@@ -24,10 +24,10 @@
 	"command.settings.title": "सेटिंग्स",
 	"command.documentation.title": "दस्तावेज़ीकरण",
 	"command.profile.title": "प्रोफ़ाइल",
-	"configuration.title": "Kilo Code",
+	"configuration.title": "Roxonn Code",
 	"commands.allowedCommands.description": "वे कमांड जो स्वचालित रूप से निष्पादित की जा सकती हैं जब 'हमेशा निष्पादन संचालन को स्वीकृत करें' सक्रिय हो",
 	"settings.vsCodeLmModelSelector.description": "VSCode भाषा मॉडल API के लिए सेटिंग्स",
 	"settings.vsCodeLmModelSelector.vendor.description": "भाषा मॉडल का विक्रेता (उदा. copilot)",
 	"settings.vsCodeLmModelSelector.family.description": "भाषा मॉडल का परिवार (उदा. gpt-4)",
-	"settings.customStoragePath.description": "कस्टम स्टोरेज पाथ। डिफ़ॉल्ट स्थान का उपयोग करने के लिए खाली छोड़ें। पूर्ण पथ का समर्थन करता है (उदा. 'D:\\KiloCodeStorage')"
+	"settings.customStoragePath.description": "कस्टम स्टोरेज पाथ। डिफ़ॉल्ट स्थान का उपयोग करने के लिए खाली छोड़ें। पूर्ण पथ का समर्थन करता है (उदा. 'D:\\RoxonnCodeStorage')"
 }

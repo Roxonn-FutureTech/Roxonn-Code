@@ -619,7 +619,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 						window.AUDIO_BASE_URI = "${audioUri}"
 						window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 					</script>
-					<title>Kilo Code</title>
+					<title>Roxonn Code</title>
 				</head>
 				<body>
 					<div id="root"></div>
@@ -689,7 +689,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 				window.AUDIO_BASE_URI = "${audioUri}"
 				window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 			</script>
-            <title>Kilo Code</title>
+            <title>Roxonn Code</title>
           </head>
           <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -874,6 +874,18 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		await this.postStateToWebview()
 	}
 
+	public async updateAuthenticationState(isAuthenticated: boolean) {
+		this.log(`Updating authentication state to: ${isAuthenticated}`)
+		// Post a message to the webview to update its UI
+		// The webview frontend will need to handle this message type
+		await this.postMessageToWebview({
+			type: "authenticationStatus",
+			payload: { isAuthenticated },
+		})
+		// Optionally, refresh the entire state if auth status affects many things
+		await this.postStateToWebview()
+	}
+
 	// Task Management
 
 	async cancelTask() {
@@ -1045,7 +1057,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 			kilocodeToken: token,
 		})
 
-		vscode.window.showInformationMessage("Kilo Code successfully configured!")
+		vscode.window.showInformationMessage("Roxonn Code successfully configured!")
 
 		if (this.getCurrentCline()) {
 			this.getCurrentCline()!.api = buildApiHandler({

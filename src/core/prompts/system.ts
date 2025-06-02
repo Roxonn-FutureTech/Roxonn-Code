@@ -44,6 +44,7 @@ async function generatePrompt(
 	enableMcpServerCreation?: boolean,
 	language?: string,
 	rooIgnoreInstructions?: string,
+	actualModelId?: string, // Added actualModelId parameter
 ): Promise<string> {
 	if (!context) {
 		throw new Error("Extension context is required for generating system prompt")
@@ -96,6 +97,11 @@ ${getObjectiveSection()}
 
 ${await addCustomInstructions(promptComponent?.customInstructions || modeConfig.customInstructions || "", globalCustomInstructions || "", cwd, mode, { language: language ?? formatLanguage(vscode.env.language), rooIgnoreInstructions })}`
 
+	// Append the actual model ID if provided
+	if (actualModelId) {
+		return `${basePrompt}\n\nNote: Your responses for this query are being generated via the '${actualModelId}' model deployment.`
+	}
+
 	return basePrompt
 }
 
@@ -115,6 +121,7 @@ export const SYSTEM_PROMPT = async (
 	enableMcpServerCreation?: boolean,
 	language?: string,
 	rooIgnoreInstructions?: string,
+	actualModelId?: string, // Added actualModelId parameter
 ): Promise<string> => {
 	if (!context) {
 		throw new Error("Extension context is required for generating system prompt")
@@ -181,5 +188,6 @@ ${customInstructions}`
 		enableMcpServerCreation,
 		language,
 		rooIgnoreInstructions,
+		actualModelId, // Pass actualModelId to generatePrompt
 	)
 }

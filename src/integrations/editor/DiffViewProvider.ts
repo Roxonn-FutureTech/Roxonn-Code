@@ -364,7 +364,7 @@ export class DiffViewProvider {
 					query: Buffer.from(this.originalContent ?? "").toString("base64"),
 				}),
 				uri,
-				`${fileName}: ${fileExists ? "Original ↔ Kilo Code's Changes" : "New File"} (Editable)`,
+				`${fileName}: ${fileExists ? "Original ↔ Roxonn Code's Changes" : "New File"} (Editable)`,
 				{ preserveFocus: true },
 			)
 

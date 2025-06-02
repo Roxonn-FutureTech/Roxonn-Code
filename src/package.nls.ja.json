@@ -1,10 +1,10 @@
 {
-	"extension.displayName": "Kilo Code AI Agent (Cline / Roo features combined)",
+	"extension.displayName": "Roxonn Code AI Agent (Cline / Roo features combined)",
 	"extension.description": "コードの計画、構築、修正のためのオープンソース AI コーディング アシスタント。",
-	"views.contextMenu.label": "Kilo Code",
-	"views.terminalMenu.label": "Kilo Code",
-	"views.sidebar.name": "Kilo Code",
-	"views.activitybar.title": "Kilo Code",
+	"views.contextMenu.label": "Roxonn Code",
+	"views.terminalMenu.label": "Roxonn Code",
+	"views.sidebar.name": "Roxonn Code",
+	"views.activitybar.title": "Roxonn Code",
 	"command.newTask.title": "新しいタスク",
 	"command.mcpServers.title": "MCPサーバー",
 	"command.prompts.title": "プロンプト",
@@ -24,10 +24,10 @@
 	"command.terminal.explainCommand.title": "このコマンドを説明",
 	"command.acceptInput.title": "入力/提案を承認",
 	"command.profile.title": "プロフィール",
-	"configuration.title": "Kilo Code",
+	"configuration.title": "Roxonn Code",
 	"commands.allowedCommands.description": "'常に実行操作を承認する'が有効な場合に自動実行できるコマンド",
 	"settings.vsCodeLmModelSelector.description": "VSCode 言語モデル API の設定",
 	"settings.vsCodeLmModelSelector.vendor.description": "言語モデルのベンダー（例：copilot）",
 	"settings.vsCodeLmModelSelector.family.description": "言語モデルのファミリー（例：gpt-4）",
-	"settings.customStoragePath.description": "カスタムストレージパス。デフォルトの場所を使用する場合は空のままにします。絶対パスをサポートします（例：'D:\\KiloCodeStorage'）"
+	"settings.customStoragePath.description": "カスタムストレージパス。デフォルトの場所を使用する場合は空のままにします。絶対パスをサポートします（例：'D:\\RoxonnCodeStorage'）"
 }

@@ -1,5 +1,5 @@
 {
-	"greeting": "Què pot fer Kilo Code per tu?",
+	"greeting": "Què pot fer Roxonn Code per tu?",
 	"task": {
 		"title": "Tasca",
 		"seeMore": "Veure més",
@@ -77,7 +77,7 @@
 	},
 	"scrollToBottom": "Desplaça't al final del xat",
 	"about": "Genera, refactoritza i depura codi amb l'ajuda de la IA.<br />Consulta la nostra <DocsLink>documentació</DocsLink> per obtenir més informació.",
-	"onboarding": "<strong> La vostra llista de tasques en aquest espai de treball està buida. </strong> Comença escrivint una tasca a continuació. \nNo esteu segur per on començar? \nMés informació sobre què pot fer Kilo Code als documents.",
+	"onboarding": "<strong> La vostra llista de tasques en aquest espai de treball està buida. </strong> Comença escrivint una tasca a continuació. \nNo esteu segur per on començar? \nMés informació sobre què pot fer Roxonn Code als documents.",
 	"rooTips": {
 		"boomerangTasks": {
 			"title": "Tasques Boomerang",
@@ -116,7 +116,7 @@
 	"diffError": {
 		"title": "Edició fallida"
 	},
-	"troubleMessage": "Kilo Code està tenint problemes...",
+	"troubleMessage": "Roxonn Code està tenint problemes...",
 	"apiRequest": {
 		"title": "Sol·licitud API",
 		"failed": "Sol·licitud API ha fallat",
@@ -142,47 +142,47 @@
 		"current": "Actual"
 	},
 	"instructions": {
-		"wantsToFetch": "Kilo Code vol obtenir instruccions detallades per ajudar amb la tasca actual."
+		"wantsToFetch": "Roxonn Code vol obtenir instruccions detallades per ajudar amb la tasca actual."
 	},
 	"fileOperations": {
-		"wantsToRead": "Kilo Code vol llegir aquest fitxer:",
-		"wantsToReadOutsideWorkspace": "Kilo Code vol llegir aquest fitxer fora de l'espai de treball:",
-		"didRead": "Kilo Code ha llegit aquest fitxer:",
-		"wantsToEdit": "Kilo Code vol editar aquest fitxer:",
-		"wantsToEditOutsideWorkspace": "Kilo Code vol editar aquest fitxer fora de l'espai de treball:",
-		"wantsToCreate": "Kilo Code vol crear un nou fitxer:",
-		"wantsToSearchReplace": "Kilo Code vol realitzar cerca i substitució en aquest fitxer:",
-		"didSearchReplace": "Kilo Code ha realitzat cerca i substitució en aquest fitxer:",
-		"wantsToInsert": "Kilo Code vol inserir contingut en aquest fitxer:",
-		"wantsToInsertWithLineNumber": "Kilo Code vol inserir contingut a la línia {{lineNumber}} d'aquest fitxer:",
-		"wantsToInsertAtEnd": "Kilo Code vol afegir contingut al final d'aquest fitxer:"
+		"wantsToRead": "Roxonn Code vol llegir aquest fitxer:",
+		"wantsToReadOutsideWorkspace": "Roxonn Code vol llegir aquest fitxer fora de l'espai de treball:",
+		"didRead": "Roxonn Code ha llegit aquest fitxer:",
+		"wantsToEdit": "Roxonn Code vol editar aquest fitxer:",
+		"wantsToEditOutsideWorkspace": "Roxonn Code vol editar aquest fitxer fora de l'espai de treball:",
+		"wantsToCreate": "Roxonn Code vol crear un nou fitxer:",
+		"wantsToSearchReplace": "Roxonn Code vol realitzar cerca i substitució en aquest fitxer:",
+		"didSearchReplace": "Roxonn Code ha realitzat cerca i substitució en aquest fitxer:",
+		"wantsToInsert": "Roxonn Code vol inserir contingut en aquest fitxer:",
+		"wantsToInsertWithLineNumber": "Roxonn Code vol inserir contingut a la línia {{lineNumber}} d'aquest fitxer:",
+		"wantsToInsertAtEnd": "Roxonn Code vol afegir contingut al final d'aquest fitxer:"
 	},
 	"directoryOperations": {
-		"wantsToViewTopLevel": "Kilo Code vol veure els fitxers de nivell superior en aquest directori:",
-		"didViewTopLevel": "Kilo Code ha vist els fitxers de nivell superior en aquest directori:",
-		"wantsToViewRecursive": "Kilo Code vol veure recursivament tots els fitxers en aquest directori:",
-		"didViewRecursive": "Kilo Code ha vist recursivament tots els fitxers en aquest directori:",
-		"wantsToViewDefinitions": "Kilo Code vol veure noms de definicions de codi font utilitzats en aquest directori:",
-		"didViewDefinitions": "Kilo Code ha vist noms de definicions de codi font utilitzats en aquest directori:",
-		"wantsToSearch": "Kilo Code vol cercar en aquest directori <code>{{regex}}</code>:",
-		"didSearch": "Kilo Code ha cercat en aquest directori <code>{{regex}}</code>:"
+		"wantsToViewTopLevel": "Roxonn Code vol veure els fitxers de nivell superior en aquest directori:",
+		"didViewTopLevel": "Roxonn Code ha vist els fitxers de nivell superior en aquest directori:",
+		"wantsToViewRecursive": "Roxonn Code vol veure recursivament tots els fitxers en aquest directori:",
+		"didViewRecursive": "Roxonn Code ha vist recursivament tots els fitxers en aquest directori:",
+		"wantsToViewDefinitions": "Roxonn Code vol veure noms de definicions de codi font utilitzats en aquest directori:",
+		"didViewDefinitions": "Roxonn Code ha vist noms de definicions de codi font utilitzats en aquest directori:",
+		"wantsToSearch": "Roxonn Code vol cercar en aquest directori <code>{{regex}}</code>:",
+		"didSearch": "Roxonn Code ha cercat en aquest directori <code>{{regex}}</code>:"
 	},
 	"commandOutput": "Sortida de l'ordre",
 	"response": "Resposta",
 	"arguments": "Arguments",
 	"mcp": {
-		"wantsToUseTool": "Kilo Code vol utilitzar una eina al servidor MCP {{serverName}}:",
-		"wantsToAccessResource": "Kilo Code vol accedir a un recurs al servidor MCP {{serverName}}:"
+		"wantsToUseTool": "Roxonn Code vol utilitzar una eina al servidor MCP {{serverName}}:",
+		"wantsToAccessResource": "Roxonn Code vol accedir a un recurs al servidor MCP {{serverName}}:"
 	},
 	"modes": {
-		"wantsToSwitch": "Kilo Code vol canviar a mode <code>{{mode}}</code>",
-		"wantsToSwitchWithReason": "Kilo Code vol canviar a mode <code>{{mode}}</code> perquè: {{reason}}",
-		"didSwitch": "Kilo Code ha canviat a mode <code>{{mode}}</code>",
-		"didSwitchWithReason": "Kilo Code ha canviat a mode <code>{{mode}}</code> perquè: {{reason}}"
+		"wantsToSwitch": "Roxonn Code vol canviar a mode <code>{{mode}}</code>",
+		"wantsToSwitchWithReason": "Roxonn Code vol canviar a mode <code>{{mode}}</code> perquè: {{reason}}",
+		"didSwitch": "Roxonn Code ha canviat a mode <code>{{mode}}</code>",
+		"didSwitchWithReason": "Roxonn Code ha canviat a mode <code>{{mode}}</code> perquè: {{reason}}"
 	},
 	"subtasks": {
-		"wantsToCreate": "Kilo Code vol crear una nova subtasca en mode <code>{{mode}}</code>:",
-		"wantsToFinish": "Kilo Code vol finalitzar aquesta subtasca",
+		"wantsToCreate": "Roxonn Code vol crear una nova subtasca en mode <code>{{mode}}</code>:",
+		"wantsToFinish": "Roxonn Code vol finalitzar aquesta subtasca",
 		"newTaskContent": "Instruccions de la subtasca",
 		"completionContent": "Subtasca completada",
 		"resultContent": "Resultats de la subtasca",
@@ -190,7 +190,7 @@
 		"completionInstructions": "Subtasca completada! Pots revisar els resultats i suggerir correccions o següents passos. Si tot sembla correcte, confirma per tornar el resultat a la tasca principal."
 	},
 	"questions": {
-		"hasQuestion": "Kilo Code té una pregunta:"
+		"hasQuestion": "Roxonn Code té una pregunta:"
 	},
 	"taskCompleted": "Tasca completada",
 	"powershell": {
@@ -199,7 +199,7 @@
 	"autoApprove": {
 		"title": "Aprovació automàtica:",
 		"none": "Cap",
-		"description": "L'aprovació automàtica permet a Kilo Code realitzar accions sense demanar permís. Activa-la només per a accions en les que confies plenament. Configuració més detallada disponible a la <settingsLink>Configuració</settingsLink>."
+		"description": "L'aprovació automàtica permet a Roxonn Code realitzar accions sense demanar permís. Activa-la només per a accions en les que confies plenament. Configuració més detallada disponible a la <settingsLink>Configuració</settingsLink>."
 	},
 	"reasoning": {
 		"thinking": "Pensant",
@@ -214,8 +214,8 @@
 		"copyToInput": "Copiar a l'entrada (o Shift + clic)"
 	},
 	"announcement": {
-		"title": "🎉 Roo Code {{version}} publicat",
-		"description": "Roo Code {{version}} porta noves funcionalitats potents i millores basades en els teus comentaris.",
+		"title": "🎉 Roxonn Code {{version}} publicat",
+		"description": "Roxonn Code {{version}} porta noves funcionalitats potents i millores basades en els teus comentaris.",
 		"whatsNew": "Novetats",
 		"feature1": "<bold>Models de vista prèvia Gemini 2.5 Flash</bold>: Accedeix als darrers models Gemini Flash per a respostes més ràpides i eficients",
 		"feature2": "<bold>Condensació intel·ligent de context</bold>: Nou botó a la capçalera de tasques que et permet condensar intel·ligentment el contingut amb retroalimentació visual",
@@ -224,7 +224,7 @@
 		"detailsDiscussLinks": "Obtingues més detalls i participa a <discordLink>Discord</discordLink> i <redditLink>Reddit</redditLink> 🚀"
 	},
 	"browser": {
-		"rooWantsToUse": "Kilo Code vol utilitzar el navegador:",
+		"rooWantsToUse": "Roxonn Code vol utilitzar el navegador:",
 		"consoleLogs": "Registres de consola",
 		"noNewLogs": "(Cap registre nou)",
 		"screenshot": "Captura de pantalla del navegador",
@@ -257,13 +257,13 @@
 	"systemPromptWarning": "ADVERTÈNCIA: S'ha activat una substitució personalitzada d'instruccions del sistema. Això pot trencar greument la funcionalitat i causar un comportament impredictible.",
 	"shellIntegration": {
 		"title": "Advertència d'execució d'ordres",
-		"description": "La teva ordre s'està executant sense la integració de shell del terminal VSCode. Per suprimir aquest advertiment, pots desactivar la integració de shell a la secció <strong>Terminal</strong> de la <settingsLink>configuració de Kilo Code</settingsLink> o solucionar problemes d'integració del terminal VSCode utilitzant l'enllaç a continuació.",
+		"description": "La teva ordre s'està executant sense la integració de shell del terminal VSCode. Per suprimir aquest advertiment, pots desactivar la integració de shell a la secció <strong>Terminal</strong> de la <settingsLink>configuració de Roxonn Code</settingsLink> o solucionar problemes d'integració del terminal VSCode utilitzant l'enllaç a continuació.",
 		"troubleshooting": "Fes clic aquí per a la documentació d'integració de shell."
 	},
 	"ask": {
 		"autoApprovedRequestLimitReached": {
 			"title": "S'ha arribat al límit de sol·licituds aprovades automàticament",
-			"description": "Kilo Code ha arribat al límit aprovat automàticament de {{count}} sol·licitud(s) d'API. Vols reiniciar el comptador i continuar amb la tasca?",
+			"description": "Roxonn Code ha arribat al límit aprovat automàticament de {{count}} sol·licitud(s) d'API. Vols reiniciar el comptador i continuar amb la tasca?",
 			"button": "Reiniciar i continuar"
 		}
 	}

@@ -1525,6 +1525,7 @@ export class Task extends EventEmitter<ClineEvents> {
 
 		const rooIgnoreInstructions = this.rooIgnoreController?.getInstructions()
 
+		const state = await this.providerRef.deref()?.getState()
 		const {
 			browserViewportSize,
 			mode,
@@ -1534,9 +1535,14 @@ export class Task extends EventEmitter<ClineEvents> {
 			enableMcpServerCreation,
 			browserToolEnabled,
 			language,
-		} = (await this.providerRef.deref()?.getState()) ?? {}
+			customModes, // Get customModes from the same getState call
+		} = state ?? {}
 
-		const { customModes } = (await this.providerRef.deref()?.getState()) ?? {}
+		// Get the actual model ID from the current API handler
+		// this.api.getModel().id now correctly returns the backend-facing ID like "deepseek-r1" or "gpt-4o"
+		// due to previous fixes in RoxonnAzureHandler ensuring this.options.openAiModelId is correct.
+		const actualModelId = this.api.getModel().id
+		console.log(`[Task.getSystemPrompt] Using actualModelId: ${actualModelId}`)
 
 		return await (async () => {
 			const provider = this.providerRef.deref()
@@ -1552,7 +1558,7 @@ export class Task extends EventEmitter<ClineEvents> {
 				mcpHub,
 				this.diffStrategy,
 				browserViewportSize,
-				mode,
+				mode, // This is the mode slug (e.g., "code")
 				customModePrompts,
 				customModes,
 				customInstructions,
@@ -1561,6 +1567,7 @@ export class Task extends EventEmitter<ClineEvents> {
 				enableMcpServerCreation,
 				language,
 				rooIgnoreInstructions,
+				actualModelId, // Pass the actual model ID as a new argument
 			)
 		})()
 	}

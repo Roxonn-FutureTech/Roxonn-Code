@@ -36,7 +36,19 @@ import {
 import { useRouterModels } from "./useRouterModels"
 import { useOpenRouterModelProviders } from "./useOpenRouterModelProviders"
 
-export const useSelectedModel = (apiConfiguration?: ProviderSettings) => {
+interface GetSelectedModelProps {
+	provider: ProviderName
+	apiConfiguration: ProviderSettings
+	routerModels: RouterModels
+	openRouterModelProviders: Record<string, ModelInfo>
+	roxonnApiProviderModels?: Record<string, ModelInfo> | null
+}
+
+export const useSelectedModel = (
+	apiConfiguration?: ProviderSettings,
+	// Add roxonnProviderModels from ApiOptions.tsx state
+	roxonnApiProviderModels?: Record<string, ModelInfo> | null,
+) => {
 	const provider = apiConfiguration?.apiProvider || "anthropic"
 	const openRouterModelId = provider === "openrouter" ? apiConfiguration?.openRouterModelId : undefined
 
@@ -52,6 +64,8 @@ export const useSelectedModel = (apiConfiguration?: ProviderSettings) => {
 					apiConfiguration,
 					routerModels: routerModels.data,
 					openRouterModelProviders: openRouterModelProviders.data,
+					// Pass roxonnApiProviderModels to the helper
+					roxonnApiProviderModels,
 				})
 			: { id: anthropicDefaultModelId, info: undefined }
 
@@ -64,17 +78,10 @@ export const useSelectedModel = (apiConfiguration?: ProviderSettings) => {
 	}
 }
 
-function getSelectedModel({
-	provider,
-	apiConfiguration,
-	routerModels,
-	openRouterModelProviders,
-}: {
-	provider: ProviderName
-	apiConfiguration: ProviderSettings
-	routerModels: RouterModels
-	openRouterModelProviders: Record<string, ModelInfo>
-}): { id: string; info: ModelInfo } {
+function getSelectedModel(props: GetSelectedModelProps): { id: string; info: ModelInfo | undefined } {
+	// Allow info to be undefined
+	const { provider, apiConfiguration, routerModels, openRouterModelProviders, roxonnApiProviderModels } = props
+
 	switch (provider) {
 		case "openrouter": {
 			const id = apiConfiguration.openRouterModelId ?? openRouterDefaultModelId
@@ -193,6 +200,34 @@ function getSelectedModel({
 			const modelFamily = apiConfiguration?.vsCodeLmModelSelector?.family ?? vscodeLlmDefaultModelId
 			const info = vscodeLlmModels[modelFamily as keyof typeof vscodeLlmModels]
 			return { id, info: { ...openAiModelInfoSaneDefaults, ...info, supportsImages: false } } // VSCode LM API currently doesn't support images.
+		}
+		case "roxonn": {
+			const id = apiConfiguration.kilocodeModel || "gpt-4o"
+			if (!roxonnApiProviderModels) {
+				// Models not loaded yet
+				console.warn(
+					`useSelectedModel: Roxonn models not yet loaded for provider "${provider}", returning undefined info for model ID "${id}".`,
+				)
+				return { id, info: undefined }
+			}
+			if (roxonnApiProviderModels[id]) {
+				// Models loaded, and ID found
+				return { id, info: roxonnApiProviderModels[id] }
+			}
+			// Models loaded, but specific ID not found (should not happen if config is correct)
+			const fallbackRoxonnInfo: ModelInfo = {
+				maxTokens: 4096,
+				contextWindow: 8192,
+				supportsImages: false,
+				supportsPromptCache: false,
+				inputPrice: 0,
+				outputPrice: 0,
+				description: `Roxonn Model (Info Not Found in Loaded Models): ${id}`,
+			}
+			console.warn(
+				`useSelectedModel: Roxonn model info for "${id}" not found in loaded roxonnApiProviderModels, using fallback. Models available: ${Object.keys(roxonnApiProviderModels).join(", ")}`,
+			)
+			return { id, info: fallbackRoxonnInfo }
 		}
 		// kilocode_change begin
 		case "kilocode": {

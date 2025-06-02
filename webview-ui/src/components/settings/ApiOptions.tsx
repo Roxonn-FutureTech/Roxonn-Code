@@ -4,7 +4,7 @@ import { useDebounce } from "react-use"
 import { VSCodeButtonLink } from "../common/VSCodeButtonLink"
 import { VSCodeLink, VSCodeTextField } from "@vscode/webview-ui-toolkit/react"
 
-import { getKiloCodeBackendAuthUrl } from "../kilocode/helpers" // kilocode_change
+import { getRoxonnBackendAuthUrl } from "../kilocode/helpers" // kilocode_change
 
 import {
 	type ProviderName,
@@ -14,9 +14,11 @@ import {
 	glamaDefaultModelId,
 	unboundDefaultModelId,
 	litellmDefaultModelId,
+	ModelInfo, // Added for Roxonn models state
 } from "@roo/shared/api"
 
 import { vscode } from "@src/utils/vscode"
+import { ExtensionMessage } from "@roo/shared/ExtensionMessage" // Added for message listener
 import { validateApiConfiguration, validateModelId } from "@src/utils/validate"
 import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { useRouterModels } from "@src/components/ui/hooks/useRouterModels"
@@ -87,6 +89,7 @@ const ApiOptions = ({
 	hideKiloCodeButton = false,
 }: ApiOptionsProps) => {
 	const { t } = useAppTranslation()
+	const [roxonnModels, setRoxonnModels] = useState<Record<string, ModelInfo> | null>(null) // Added for Roxonn models
 
 	const [customHeaders, setCustomHeaders] = useState<[string, string][]>(() => {
 		const headers = apiConfiguration?.openAiHeaders || {}
@@ -136,7 +139,7 @@ const ApiOptions = ({
 		provider: selectedProvider,
 		id: selectedModelId,
 		info: selectedModelInfo,
-	} = useSelectedModel(apiConfiguration)
+	} = useSelectedModel(apiConfiguration, roxonnModels) // Pass roxonnModels state here
 
 	const { data: routerModels, refetch: refetchRouterModels } = useRouterModels()
 
@@ -170,6 +173,9 @@ const ApiOptions = ({
 				vscode.postMessage({ type: "requestLmStudioModels", text: apiConfiguration?.lmStudioBaseUrl })
 			} else if (selectedProvider === "vscode-lm") {
 				vscode.postMessage({ type: "requestVsCodeLmModels" })
+			} else if (selectedProvider === "roxonn") {
+				// Added condition for Roxonn
+				vscode.postMessage({ type: "requestRoxonnModels" })
 			} else if (selectedProvider === "litellm") {
 				vscode.postMessage({ type: "requestRouterModels" })
 			}
@@ -194,6 +200,24 @@ const ApiOptions = ({
 
 		setErrorMessage(apiValidationResult)
 	}, [apiConfiguration, routerModels, setErrorMessage])
+
+	// Effect to listen for Roxonn models response
+	useEffect(() => {
+		const handleMessage = (event: MessageEvent<ExtensionMessage>) => {
+			const message = event.data
+			if (message.type === "roxonnModelsResponse") {
+				const payload = message.payload as import("@roo/shared/ExtensionMessage").RoxonnModelsResponsePayload
+				if (payload?.models) {
+					setRoxonnModels(payload.models)
+				} else if (payload?.error) {
+					console.error("Error fetching Roxonn models:", payload.error)
+					setRoxonnModels({}) // Set to empty to avoid breaking UI, show error elsewhere
+				}
+			}
+		}
+		window.addEventListener("message", handleMessage)
+		return () => window.removeEventListener("message", handleMessage)
+	}, [])
 
 	const selectedProviderModels = useMemo(
 		() =>
@@ -310,10 +334,10 @@ const ApiOptions = ({
 			{errorMessage && <ApiErrorMessage errorMessage={errorMessage} />}
 
 			{/* kilocode_change start */}
-			{selectedProvider === "kilocode" && (
+			{selectedProvider === "roxonn" && (
 				<>
 					<div style={{ marginTop: "0px" }} className="text-sm text-vscode-descriptionForeground -mt-2">
-						You get $20 for free!
+						{t("kilocode:settings.provider.freeCreditsMessageRoxonn")}
 					</div>
 
 					<VSCodeTextField
@@ -330,11 +354,11 @@ const ApiOptions = ({
 					<ModelPicker
 						apiConfiguration={apiConfiguration}
 						setApiConfigurationField={setApiConfigurationField}
-						defaultModelId="claude37"
-						models={routerModels?.["kilocode-openrouter"] ?? {}}
-						modelIdKey="kilocodeModel"
-						serviceName="Kilo Code"
-						serviceUrl="https://kilocode.ai"
+						defaultModelId={apiConfiguration.kilocodeModel || ""} // Use existing or empty
+						models={roxonnModels ?? {}} // Use fetched Roxonn models
+						modelIdKey="kilocodeModel" // This field in ProviderSettings holds the model ID for Roxonn
+						serviceName="Roxonn Code"
+						serviceUrl="https://app.roxonn.com"
 					/>
 
 					{!hideKiloCodeButton &&
@@ -357,7 +381,7 @@ const ApiOptions = ({
 								</Button>
 							</div>
 						) : (
-							<VSCodeButtonLink variant="secondary" href={getKiloCodeBackendAuthUrl(uriScheme, uiKind)}>
+							<VSCodeButtonLink variant="secondary" href={getRoxonnBackendAuthUrl(uriScheme, uiKind)}>
 								{t("kilocode:settings.provider.login")}
 							</VSCodeButtonLink>
 						))}

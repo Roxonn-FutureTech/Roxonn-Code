@@ -11,12 +11,13 @@ import {
 	ClineSay,
 	ToolProgressStatus,
 	ClineMessage,
+	ModelInfo,
 } from "../schemas"
 import { McpServer } from "./mcp"
 import { McpMarketplaceCatalog, McpDownloadResponse } from "./kilocode/mcp"
 import { Mode } from "./modes"
 import { RouterModels } from "./api"
-import { ProfileDataResponsePayload, BalanceDataResponsePayload } from "./WebviewMessage"
+import { ProfileDataResponsePayload, BalanceDataResponsePayload, WebviewMessage } from "./WebviewMessage" // Added WebviewMessage for consistency
 
 export type { ProviderSettingsEntry, ToolProgressStatus }
 
@@ -77,7 +78,9 @@ export interface ExtensionMessage {
 		| "vsCodeSetting"
 		| "profileDataResponse" // kilocode_change
 		| "balanceDataResponse" // kilocode_change
+		| "roxonnModelsResponse" // Added for Roxonn provider models
 		| "condenseTaskContextResponse"
+		| "authenticationStatus" // Added for auth state updates
 	text?: string
 	action?:
 		| "chatButtonClicked"
@@ -124,7 +127,21 @@ export interface ExtensionMessage {
 	url?: string // kilocode_change
 	setting?: string
 	value?: any
-	payload?: ProfileDataResponsePayload | BalanceDataResponsePayload // New: Add payload for profile and balance data
+	payload?:
+		| ProfileDataResponsePayload
+		| BalanceDataResponsePayload
+		| AuthenticationStatusPayload
+		| RoxonnModelsResponsePayload // Added AuthenticationStatusPayload and RoxonnModelsResponsePayload
+}
+
+export interface RoxonnModelsResponsePayload {
+	models?: Record<string, ModelInfo>
+	error?: string
+}
+
+export interface AuthenticationStatusPayload {
+	// Defined new payload type
+	isAuthenticated: boolean
 }
 
 export type ExtensionState = Pick<

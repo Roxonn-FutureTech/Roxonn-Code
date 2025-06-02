@@ -1,9 +1,38 @@
 {
-	"name": "kilo-code",
-	"packageManager": "pnpm@10.8.1",
+	"name": "roxonn-code",
+	"displayName": "Roxonn Code",
+	"description": "AI-powered coding assistant with crypto payments",
+	"version": "0.0.1",
+	"publisher": "roxonn",
+	"license": "SEE LICENSE IN LICENSE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/roxonn/roxonn-code"
+	},
 	"engines": {
+		"vscode": "^1.86.0",
 		"node": "20.18.1"
 	},
+	"categories": [
+		"Programming Languages",
+		"Machine Learning",
+		"Other"
+	],
+	"icon": "icon.png",
+	"main": "./dist/extension.js",
+	"activationEvents": [
+		"onStartupFinished",
+		"onCommand:roxonn-code.showWelcomePage"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "roxonn-code.showWelcomePage",
+				"title": "Roxonn Code: Show Welcome Page"
+			}
+		]
+	},
+	"packageManager": "pnpm@10.8.1",
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
 		"prepare": "husky",
@@ -12,7 +41,7 @@
 		"test": "turbo test --log-order grouped --output-logs new-only",
 		"format": "turbo format --log-order grouped --output-logs new-only",
 		"clean": "turbo clean --log-order grouped --output-logs new-only && rimraf dist out bin .vite-port .turbo",
-		"build": "pnpm --filter kilo-code vsix",
+		"build": "pnpm --filter roxonn-code vsix",
 		"build:nightly": "pnpm --filter @roo-code/vscode-nightly vsix",
 		"changeset:version": "cp CHANGELOG.md src/CHANGELOG.md && changeset version && cp -vf src/CHANGELOG.md .",
 		"knip": "pnpm --filter @roo-code/build build && knip --include files",

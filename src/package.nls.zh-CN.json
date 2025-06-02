@@ -1,5 +1,5 @@
 {
-	"extension.displayName": "Kilo Code AI Agent (Cline / Roo features combined)",
+	"extension.displayName": "Roxonn Code AI Agent (Cline / Roo features combined)",
 	"extension.description": "用于规划、构建和修复代码的开源 AI 编码助手。",
 	"command.newTask.title": "新建任务",
 	"command.explainCode.title": "解释代码",
@@ -13,10 +13,10 @@
 	"command.terminal.fixCommand.title": "修复此命令",
 	"command.terminal.explainCommand.title": "解释此命令",
 	"command.acceptInput.title": "接受输入/建议",
-	"views.activitybar.title": "Kilo Code",
-	"views.contextMenu.label": "Kilo Code",
-	"views.terminalMenu.label": "Kilo Code",
-	"views.sidebar.name": "Kilo Code",
+	"views.activitybar.title": "Roxonn Code",
+	"views.contextMenu.label": "Roxonn Code",
+	"views.terminalMenu.label": "Roxonn Code",
+	"views.sidebar.name": "Roxonn Code",
 	"command.mcpServers.title": "MCP 服务器",
 	"command.prompts.title": "提示",
 	"command.history.title": "历史记录",
@@ -24,10 +24,10 @@
 	"command.settings.title": "设置",
 	"command.documentation.title": "文档",
 	"command.profile.title": "配置文件",
-	"configuration.title": "Kilo Code",
+	"configuration.title": "Roxonn Code",
 	"commands.allowedCommands.description": "当启用'始终批准执行操作'时可以自动执行的命令",
 	"settings.vsCodeLmModelSelector.description": "VSCode 语言模型 API 的设置",
 	"settings.vsCodeLmModelSelector.vendor.description": "语言模型的供应商（例如：copilot）",
 	"settings.vsCodeLmModelSelector.family.description": "语言模型的系列（例如：gpt-4）",
-	"settings.customStoragePath.description": "自定义存储路径。留空以使用默认位置。支持绝对路径（例如：'D:\\KiloCodeStorage'）"
+	"settings.customStoragePath.description": "自定义存储路径。留空以使用默认位置。支持绝对路径（例如：'D:\\RoxonnCodeStorage'）"
 }
