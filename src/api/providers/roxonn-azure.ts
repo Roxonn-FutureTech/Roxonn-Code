@@ -106,7 +106,7 @@ export class RoxonnAzureHandler extends OpenAiHandler {
 
 		if (kilocodeModelFromOptions) {
 			// First, check if kilocodeModelFromOptions is one of the UI keys (e.g., "roxonn/deepseek-r1")
-			if (modelMapping.hasOwnProperty(kilocodeModelFromOptions)) {
+			if (Object.prototype.hasOwnProperty.call(modelMapping, kilocodeModelFromOptions)) {
 				determinedBackendModelId = modelMapping[kilocodeModelFromOptions as keyof typeof modelMapping]
 				console.log(
 					`RoxonnAzureHandler: Mapped UI key "${kilocodeModelFromOptions}" to backend ID "${determinedBackendModelId}".`,
