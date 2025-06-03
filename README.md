@@ -15,7 +15,7 @@
 - 🧪 Run terminal commands
 - 🌐 Automate the browser
 - 🤖 Latest AI models
-- 🎁 API keys optional
+- 🎁 API keys optional 
 - 💡 **$20 free credits for Gemini 2.5 Pro, Claude 4 Sonnet & Opus, and GPT-4.1**<br/>Share feedback and earn more credits!
 
 <p align="center">
