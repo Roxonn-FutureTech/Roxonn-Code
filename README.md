@@ -23,7 +23,7 @@
 </p>
 
 - [VS Code Marketplace](https://roxonn.com/vscode-marketplace?utm_source=Readme) (download)
-- [Official Roxonn.com Home page](https://roxonn.com) (learn more) 
+- [Official Roxonn.com Home page](https://roxonn.com) (learn more)  
 
 ## Key Features
 
