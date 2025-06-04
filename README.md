@@ -12,7 +12,7 @@
 
 - ✨ Generate code from natural language
 - ✅ Checks its own work
-- 🧪 Run terminal commands
+- 🧪 Run terminal commands 
 - 🌐 Automate the browser
 - 🤖 Latest AI models
 - 🎁 API keys optional  
