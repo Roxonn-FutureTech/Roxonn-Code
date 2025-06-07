@@ -1,4 +1,4 @@
-# Project Progress: Roxonn Code (VSCode Extension) - (Updated 2025-05-31)
+# Project Progress: Roxonn Code (VSCode Extension) - (Updated 2025-06-07)
 
 ## 1. Current Status Overview
 
@@ -42,7 +42,7 @@
         - **COMPLETE:** Uses `options.kilocodeToken` (JWT) for `openAiApiKey`.
         - **COMPLETE:** Injects JWT `Authorization: Bearer` header into requests.
         - **COMPLETE:** Uses `options.kilocodeModel` for model selection, mapping to backend model IDs (e.g., "roxonn/gpt-4o" -> "gpt-4o").
-        - **COMPLETE:** `getModels()` returns a hardcoded list (`gpt-4o`, `gpt-4o-mini`, `gpt-3.5-turbo`).
+        - **COMPLETE (Updated 2025-06-07 with refined specs & pricing):** `getModels()` returns an updated hardcoded list. The `ROXONN_MODELS_DEFINITION` for **`grok-3`** and **`grok-3-mini`** was updated with context window and max output tokens of 131,072, `supportsImages: false`, `supportsPromptCache: true`, revised descriptions, and pricing (Grok-3: $0.003/$0.015; Grok-3 Mini: $0.00025/$0.00127 per 1k tokens) based on xAI specifications and user-provided article. The `modelMapping` was already correct.
     2.  **Provider Registration (`src/api/index.ts`):**
         - **COMPLETE:** `RoxonnAzureHandler` imported and registered for "roxonn" provider.
     3.  **Branding Updates:**
@@ -91,10 +91,17 @@
     - `webviewMessageHandler.ts` uses `GET /api/vscode/profile` and `GET /api/vscode/profile/balance`.
     - `RoxonnProfileService.ts` is designed for `GET /api/auth/user`, `GET /api/token/balance`, `GET /api/wallet/info`.
     - **Action:** Clarify with user/backend team which profile/balance endpoints are canonical for UI data. Determine if `RoxonnProfileService.ts` has a current active role or is for future use/other internal logic.
-- **Azure Environment Variables:** (Backend task - User needs to ensure these are set in `GitHubIdentity`'s `server/.env` or SSM).
+- **Azure Environment Variables:** (Backend task - User needs to ensure these are set in `GitHubIdentity`'s `server/.env` or SSM, including for new Grok models if they use a separate key/endpoint).
 
 ## 5. Evolution of Project Decisions & Learnings
 
+- **2025-06-07 (New Model Addition & Refinement with Pricing):**
+    - Added "grok-3" and "grok-3-mini" to the client-side model list in `src/api/providers/roxonn-azure.ts`.
+    - Initially updated `ROXONN_MODELS_DEFINITION` with placeholder/inferred values for Grok models.
+    - Subsequently refined the "grok-3" and "grok-3-mini" entries in `ROXONN_MODELS_DEFINITION` with more accurate specifications (131k context/max output tokens, image/prompt cache support, descriptions) based on user-provided xAI details.
+    - Updated `inputPrice` and `outputPrice` for Grok models based on user-provided article (Grok-3: $0.003/$0.015; Grok-3 Mini: $0.00025/$0.00127 per 1k tokens).
+    - `modelMapping` in `roxonn-azure.ts` was confirmed correct for these models.
+    - Backend is assumed to be ready to handle these new model requests.
 - **2025-06-01 (Uncommitted Code Review):**
     - Identified new utilities (`roxonnAuth.ts`, `roxonnProfileService.ts`) enhancing token and profile management.
     - Clarified specific backend endpoints used by UI (`/api/vscode/profile`, `/api/vscode/profile/balance`).
@@ -125,8 +132,10 @@
         - Proactive token loading (`roxonnAuth.ts`).
         - Profile and Balance data fetching and display in UI (`ProfileView.tsx`, `webviewMessageHandler.ts`).
         - Roxonn model selection in settings UI (`ApiOptions.tsx`, `webviewMessageHandler.ts`).
+    - **M0.5: New Model Integration (Client-Side) (2025-06-07):**
+        - Added "grok-3" and "grok-3-mini" to `src/api/providers/roxonn-azure.ts`, with specifications (131k context/max output, etc.) and pricing updated based on detailed xAI information and user-provided article.
 - **Completed Milestones (for `GitHubIdentity` project - based on user review & plan):**
-    - (Reported) Backend API endpoint for AI completions implemented.
+    - (Reported) Backend API endpoint for AI completions implemented, and updated to support "grok-3" and "grok-3-mini".
     - (Reported) GitHub OAuth callback updated for VSCode JWT flow.
     - (Reported) `aiCredits` field and migration added.
     - (Reported) Azure OpenAI configuration support added.

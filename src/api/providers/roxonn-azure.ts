@@ -75,6 +75,26 @@ const ROXONN_MODELS_DEFINITION: ModelRecord = {
 		outputPrice: 0.002,
 		description: "Roxonn DeepSeek-R1 - Powerful and efficient model",
 	},
+	"grok-3": {
+		contextWindow: 131_072,
+		maxTokens: 131_072, // Max output tokens as per xAI specs
+		supportsImages: false, // Not specified as supporting images
+		supportsPromptCache: true, // Assumed due to tool calling capability
+		inputPrice: 0.003, // $3 per 1M tokens
+		outputPrice: 0.015, // $15 per 1M tokens
+		description:
+			"Roxonn Grok-3 (Azure Deployment) - xAI model for data extraction, coding, summarization. 131k context.",
+	},
+	"grok-3-mini": {
+		contextWindow: 131_072,
+		maxTokens: 131_072, // Max output tokens as per xAI specs
+		supportsImages: false, // Not specified as supporting images
+		supportsPromptCache: true, // Assumed due to tool calling capability
+		inputPrice: 0.00025, // $0.25 per 1M tokens
+		outputPrice: 0.00127, // $1.27 per 1M tokens
+		description:
+			"Roxonn Grok-3 Mini (Azure Deployment) - xAI reasoning model for coding, math, science. 131k context.",
+	},
 }
 
 export class RoxonnAzureHandler extends OpenAiHandler {
@@ -99,6 +119,8 @@ export class RoxonnAzureHandler extends OpenAiHandler {
 			"roxonn/gpt-4.1": "gpt-4.1",
 			"roxonn/ministral-3b": "ministral-3b", // Added for Ministral-3B
 			"roxonn/deepseek-r1": "deepseek-r1",
+			"roxonn/grok-3": "grok-3",
+			"roxonn/grok-3-mini": "grok-3-mini",
 		}
 
 		let determinedBackendModelId: string

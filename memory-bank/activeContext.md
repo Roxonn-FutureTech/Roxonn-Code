@@ -1,15 +1,21 @@
-# Active Context: Roxonn Code (VSCode Extension) - (Updated 2025-05-31)
+# Active Context: Roxonn Code (VSCode Extension) - (Updated 2025-06-07)
 
 ## 1. Current Work Focus
 
-- **Immediate Priority:** Finalizing Memory Bank updates based on uncommitted file review. Preparing for build and test of the Roxonn Code VSCode extension.
+- **Immediate Priority:** Updating Memory Bank (`activeContext.md`, `progress.md`) to reflect addition of new Grok models. Preparing to guide user on building and testing the updated Roxonn Code VSCode extension.
 - **Tasks in Progress:**
-    - Reviewing uncommitted files in `kilocode` project.
-    - Identifying discrepancies and new features/patterns.
-    - Updating `kilocode` Memory Bank (this document, `systemPatterns.md`, `techContext.md`, `progress.md`).
+    - Updating `activeContext.md` with Grok model additions.
+    - Updating `progress.md` with Grok model additions.
 
 ## 2. Recent Changes & Decisions
 
+- **New Model Addition (2025-06-07) (Updated with accurate specs & pricing):**
+    - **`src/api/providers/roxonn-azure.ts` (Modified):**
+        - Updated "grok-3" and "grok-3-mini" entries in `ROXONN_MODELS_DEFINITION`.
+        - For both models: `contextWindow` set to 131,072, `maxTokens` set to 131,072 (as per xAI output specs), `supportsImages` set to `false`, `supportsPromptCache` set to `true`.
+        - `inputPrice` and `outputPrice` updated based on user-provided article (Grok-3: $0.003/$0.015 per 1k; Grok-3 Mini: $0.00025/$0.00127 per 1k).
+        - Descriptions updated to reflect xAI model capabilities and 131k context.
+        - The `modelMapping` entries for `"roxonn/grok-3": "grok-3"` and `"roxonn/grok-3-mini": "grok-3-mini"` remain correct.
 - **Uncommitted File Review (2025-06-01):**
     - **`src/utils/roxonnAuth.ts` (New):** Introduces `loadRoxonnAuthToken` to proactively load and apply JWT from `SecretStorage` (key: `"roxonnAuthToken"`) to provider settings during extension activation.
     - **`src/utils/roxonnProfileService.ts` (New):** Defines `RoxonnProfileService` for fetching detailed user profile, AI credits, and token/wallet balances from backend endpoints (`/api/auth/user`, `/api/token/balance`, `/api/wallet/info`). Includes adapter methods (`getVSCodeProfile`, `getVSCodeProfileBalance`).
@@ -42,9 +48,9 @@
 
 ## 3. Next Steps
 
-- **Complete `kilocode` Memory Bank Update:** Finish updating `systemPatterns.md`, `techContext.md`, and `progress.md` based on uncommitted file review.
-- **Git Integration:** Add updated Memory Bank files and all other reviewed uncommitted changes to git staging.
-- **Guide User on Building & Testing:** Provide steps for building the `roxonn-code` extension and testing the authentication, profile display, and AI request flow.
+- **Complete `kilocode` Memory Bank Update:** Finish updating `progress.md` to reflect Grok model additions.
+- **Git Integration:** Add updated Memory Bank files (`activeContext.md`, `progress.md`) and the modified `src/api/providers/roxonn-azure.ts` to git staging.
+- **Guide User on Building & Testing:** Provide steps for building the `roxonn-code` extension and testing the new Grok models, authentication, profile display, and AI request flow.
 - **Address any remaining TypeScript errors** if they surface during the build/run phase.
 
 ## 4. Active Considerations & Questions
